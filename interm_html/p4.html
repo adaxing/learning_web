@@ -12,21 +12,22 @@
 	<input id="first_name" type="text" placeholder="First name" required>
 	<label for="last_name">Last Name: </label>
 	<input id="last_name" type="text" placeholder="Last name" required>
-	<p>
-		<label>Male </label>
-		<input name = "gender" type="radio" required>
-		<label>Female</label>
-		<input name = "gender" type="radio">
-		<label>Other</label>
-		<input name = "gender" type="radio">
-	</p>
-	<p>
+	<div>
+		<label for="male">Male</label>
+		<input id="male" name = "gender" type="radio" value="male" reuqired>
+		<label for="female">Female</label>
+		<input id="female" name = "gender" type="radio" value="female">
+		<label for="other">Other</label>
+		<input id="other" name = "gender" type="radio" value="other">
+	</div>
+	<div>
 		<label for="email">Email: </label>
 		<input id="email" type="email" required>
 		<label for="password">Password: </label>
-		<input id="password" type="password" minlength="5" maxlength="10" required>
-	</p>
-	<p>
+		<input id="password" type="password" pattern=".{5,10}" required title="Password must be between 5 to 10 characters">
+		<!-- <input id="password" type="password" minlength="5" maxlength="10" required> -->
+	</div>
+	<div>
 		<label>Birthday: </label>
 		<select name="month">
 			<option>Jan</option>
@@ -103,10 +104,17 @@
 			<option>1994</option>
 			<option>1993</option>
 		</select>
-	</p>
-	<p>I agree to the terms and conditions <input type="checkbox" required> </p>
-
-	<button>Submit</button>
+	</div>
+	<div>
+		<label for="checkbox">I agree to the terms and conditions</label>
+		<input id="checkbox" type="checkbox" required>
+	</div>
+	<!-- <p>I agree to the terms and conditions <input type="checkbox" required> </p>
+ -->
+	<!-- <button>Submit</button> -->
+	<div>
+		<input type="submit" value="Submit">
+	</div>
 </form>
 
 </body>
