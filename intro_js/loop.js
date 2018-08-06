@@ -32,6 +32,7 @@
 // 	num3++;
 // }
 
+
 //translate to for loop version
 console.log("1. Print all numbers between -10 and 19");
 for (var i=-10; i<20; i++) {

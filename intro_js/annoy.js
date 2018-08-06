@@ -5,7 +5,7 @@
 // }
 
 // alert("YAY, WE MADE IT");
-
+window.setTimeout(function() {
 var answer = prompt("are we there yet");
 
 while (answer.indexOf("yes") == -1) {
@@ -13,3 +13,4 @@ while (answer.indexOf("yes") == -1) {
 }
 
 alert("YAY, WE MADE IT");
+}, 1000);

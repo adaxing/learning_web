@@ -31,6 +31,7 @@ console.log(factorial(10));
 console.log(factorial(2));
 console.log(factorial(0));
 
+// if there is no "-", it will return -1
 function kebabToSnake(src) {
 	// asrc = src;
 	// while (asrc.indexOf("-") != -1) {
