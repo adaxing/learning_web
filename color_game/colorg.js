@@ -9,6 +9,17 @@ ds.textContent = picked;
 var easy = document.querySelector("#easy");
 var hard = document.querySelector("#hard");
 
+
+// var modeButtons = document.querySelectorAll(".mode");
+// for (var i=0;i<modeButtons.length; i++) {
+// 	modeButtons.addEventListener("click", function(){
+// 		modeButtons[0].classList.remove("selected");
+// 		modeButtons[1].classList.remove("selected");
+// 		this.classList.add("selected");
+// 	})
+// }
+
+
 easy.addEventListener("click",function(){
 	hard.classList.remove("selected");
 	easy.classList.add("selected");
@@ -41,25 +52,27 @@ reset.addEventListener("click", function(){
 	colors = generateColor(6);
 	picked = newColor();
 	ds.textContent = picked;
+	this.textContent = "new colors";
+	message.textContent = "";
 	for (var i=0; i<square.length; i++) {
 		square[i].style.backgroundColor = colors[i];
 	}
-	h1.style.backgroundColor = "#232323";
+	h1.style.backgroundColor = "steelblue";
 })
 
 for (var i=0; i<square.length; i++) {
 	square[i].style.backgroundColor = colors[i];
-
 	square[i].addEventListener("click", function(){
 		var clicked = this.style.backgroundColor;
 		if (clicked == picked) {
-			message.textContent = "Correct";
+			console.log("hi");
+			message.textContent = "Correct!!";
 			reset.textContent = "Play Again?";
 			changeColor(clicked);
 			h1.style.backgroundColor = clicked;
 		} else {
 			this.style.backgroundColor = "#232323";
-			message.textContent = "Try Again";
+			message.textContent = "Try Again!!";
 		}
 	});
 }
