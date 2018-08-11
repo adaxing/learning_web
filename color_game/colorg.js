@@ -1,3 +1,4 @@
+var numSquare = 6;
 var colors = generateColor(6);
 var square = document.querySelectorAll(".square");
 var picked = newColor();
@@ -6,66 +7,89 @@ var message = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var reset = document.querySelector("#reset");
 ds.textContent = picked;
-var easy = document.querySelector("#easy");
-var hard = document.querySelector("#hard");
+// var easy = document.querySelector("#easy");
+// var hard = document.querySelector("#hard");
 
 
-// var modeButtons = document.querySelectorAll(".mode");
-// for (var i=0;i<modeButtons.length; i++) {
-// 	modeButtons.addEventListener("click", function(){
-// 		modeButtons[0].classList.remove("selected");
-// 		modeButtons[1].classList.remove("selected");
-// 		this.classList.add("selected");
-// 	})
-// }
-
-
-easy.addEventListener("click",function(){
-	hard.classList.remove("selected");
-	easy.classList.add("selected");
-	colors = generateColor(3);
-	picked = newColor();
-	ds.textContent = picked;
-	for (var i=0;i<square.length;i++) {
-		if (colors[i]) {
-			square[i].style.backgroundColor = colors[i];
+var modeButtons = document.querySelectorAll(".mode");
+for (var i=0;i<modeButtons.length; i++) {
+	modeButtons[i].addEventListener("click", function(){
+		modeButtons[0].classList.remove("selected");
+		modeButtons[1].classList.remove("selected")
+		this.classList.add("selected");
+		if (this.textContent == "Easy") {
+			numSquare = 3;
 		} else {
-			square[i].style.display = "none";
+			numSquare = 6;
 		}
-	}
-})
+		rese()
 
-hard.addEventListener("click",function(){
-	hard.classList.remove("selected");
-	easy.classList.add("selected");
-	colors = generateColor(6);
-	picked = newColor();
-	ds.textContent = picked;
-	for (var i=0;i<square.length;i++) {
-		square[i].style.backgroundColor = colors[i];
-		square[i].style.display = "block";
-		
-	}
-})
+	});
+}
 
-reset.addEventListener("click", function(){
-	colors = generateColor(6);
+function rese() {
+	colors = generateColor(numSquare);
 	picked = newColor();
 	ds.textContent = picked;
 	this.textContent = "new colors";
 	message.textContent = "";
 	for (var i=0; i<square.length; i++) {
-		square[i].style.backgroundColor = colors[i];
+		if (colors[i]) {
+			square[i].style.display = "block";
+			square[i].style.backgroundColor = colors[i];
+		} else {
+			square[i].style.display = "none";
+		}
 	}
 	h1.style.backgroundColor = "steelblue";
-})
+}
+reset.addEventListener("click", function(){
+	rese()});
+// easy.addEventListener("click",function(){
+// 	hard.classList.remove("selected");
+// 	easy.classList.add("selected");
+// 	colors = generateColor(3);
+// 	picked = newColor();
+// 	ds.textContent = picked;
+// 	for (var i=0;i<square.length;i++) {
+		// if (colors[i]) {
+		// 	square[i].style.backgroundColor = colors[i];
+		// } else {
+		// 	square[i].style.display = "none";
+		// }
+// 	}
+// })
+
+// hard.addEventListener("click",function(){
+// 	hard.classList.remove("selected");
+// 	easy.classList.add("selected");
+// 	colors = generateColor(6);
+// 	picked = newColor();
+// 	ds.textContent = picked;
+// 	for (var i=0;i<square.length;i++) {
+// 		square[i].style.backgroundColor = colors[i];
+// 		square[i].style.display = "block";
+		
+// 	}
+// })
+
+// reset.addEventListener("click", function(){
+// 	colors = generateColor(6);
+// 	picked = newColor();
+// 	ds.textContent = picked;
+// 	this.textContent = "new colors";
+// 	message.textContent = "";
+// 	for (var i=0; i<square.length; i++) {
+// 		square[i].style.backgroundColor = colors[i];
+// 	}
+// 	h1.style.backgroundColor = "steelblue";
+// })
 
 for (var i=0; i<square.length; i++) {
 	square[i].style.backgroundColor = colors[i];
 	square[i].addEventListener("click", function(){
 		var clicked = this.style.backgroundColor;
 		if (clicked == picked) {
-			console.log("hi");
 			message.textContent = "Correct!!";
 			reset.textContent = "Play Again?";
 			changeColor(clicked);
