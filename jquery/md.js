@@ -47,4 +47,10 @@ $("li").toggleClass("correct");
 $("li").first().toggleClass("done");
 
 $("li").toggleClass("done");
+$("button").click(function(){
+	$(this).css("background","pink");
+})
+$("button").click(function(){
+	$(this).css("background","pink");
+})
 
