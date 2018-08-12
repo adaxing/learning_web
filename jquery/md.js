@@ -54,3 +54,26 @@ $("button").click(function(){
 	$(this).css("background","pink");
 })
 
+$("input").keypress(function(event){
+	if (event.which==13) {
+		alert("enter");
+	}
+});
+
+$("h1").on("click", function(){
+	$(this).css("color","purple");
+});
+
+$("input").on("keypress", function(){
+	console.log("keypress");
+});
+
+$("button").on("mouseenter", function(){
+	$(this).css("font-size", "20px");
+});
+
+$("button").on("mouseleave", function(){
+	$(this).css("font-size", "10px");
+});
+
+$("h1").fadeOut("slow"); 
