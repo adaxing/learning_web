@@ -1,0 +1,82 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #ff6e7f;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #bfe9ff, #ff6e7f);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #bfe9ff, #ff6e7f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+h1 {
+	text-transform: uppercase;
+	background: pink;
+	padding: 10px 20px;
+	margin: 0;
+	color: white;
+	font-size: 24px;
+}
+
+.fa-plus {
+	float: right;
+}
+
+#container {
+	margin: 0 auto;
+	width:360px;
+	background:#f7f7f7;
+}
+
+input {
+	font-size: 18px;
+	background: #f7f7f7;
+	color: #2980b9;
+	width: 100%;
+	padding: 13px 13px 13px 20px;
+	box-sizing: border-box;
+	/* change solid border to shadow */
+	border: 3px solid rgba(0,0,0,0);
+}
+
+input:focus {
+	background: #fff;
+	border: 2px solid pink;
+	outline: none;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+
+li {
+	background: #fff;
+	color: #666;
+	height: 40px;
+	line-height: 40px;
+}
+
+li:nth-child(2n) {
+	background: #f7f7f7;
+}
+
+li span {
+	background: pink;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	color: white;
+	width: 0;
+	display: inline-block;
+	/* hid trash sign*/
+	opacity: 0;
+	transition: 0.5s linear;
+}
+
+li:hover span {
+	width: 40px;
+	opacity: 1.0;
+}
+
+.finished {
+	color: gray;
+	text-decoration: line-through;
+}
