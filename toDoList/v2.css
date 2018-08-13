@@ -41,6 +41,26 @@ input:focus {
 	border: 2px solid pink;
 	outline: none;
 }
+
+#save {
+	display: none;
+}
+
+button {
+	background: pink;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	color: white;
+	display: inline-block;
+	transition: 0.5s linear;
+	border: none;
+	text-transform: uppercase;
+	float: center;
+
+}
+
+
 ul {
 	list-style: none;
 	padding: 0;

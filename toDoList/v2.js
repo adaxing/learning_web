@@ -19,3 +19,26 @@ $("ul").on("click","span", function(){
 $(".fa-plus").click(function(){
 	$("input[type='text']").fadeToggle();
 })
+
+$("h1").on("click",'#edit', function(){
+  $('#edit').hide();
+  $('li').each(function(){
+    var content = $(this).text();
+    $(this).html('<textarea>' + content + '</textarea>');
+  });  
+  
+  $('#save').show();
+  $('.info').fadeIn('fast');
+});
+
+$("h1").on("click",'#save',function(){
+  $('#save, .info').hide();
+  $('textarea').each(function(){
+    var content = $(this).val();//.replace(/\n/g,"<br>");
+    $(this).html(content);
+    $(this).contents().unwrap();    
+  }); 
+
+  $('#edit').show(); 
+});
+
