@@ -24,15 +24,13 @@ $("h1").on("click",'#edit', function(){
   $('#edit').hide();
   $('li').each(function(){
     var content = $(this).text();
-    $(this).html('<textarea>' + content + '</textarea>');
+    $(this).html('<li><span><i class="far fa-trash-alt"></i></span>' + '<textarea>'+ content + '</textarea>');
   });  
-  
   $('#save').show();
-  $('.info').fadeIn('fast');
 });
 
 $("h1").on("click",'#save',function(){
-  $('#save, .info').hide();
+  $('#save').hide();
   $('textarea').each(function(){
     var content = $(this).val();//.replace(/\n/g,"<br>");
     $(this).html(content);
