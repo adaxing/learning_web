@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Circle proj</title>
+	<script type="text/javascript" src="paper-full.js"></script>
+	<link rel="stylesheet" type="text/css" href="circle.css">
+	<script type="text/paperscript" canvas="myCanvas">
+
+	// random point 	
+	function onKeyDown(event) {
+		// generate whole screen pixel, fixed number 
+		// return to right bottom corner
+		var maxPoint = new Point(view.size.width, view.size.height);
+		// return 0-1
+		var randomPoint = Point.random();
+		// since randomPoint always different, then point will be random
+		var point = maxPoint*randomPoint;
+		var circle = new Path.Circle(point,10);
+		circle.fillColor = "pink";
+	}
+
+
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas" resize></canvas>
+
+</body>
+</html>
