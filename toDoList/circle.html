@@ -3,20 +3,136 @@
 <head>
 	<title>Circle proj</title>
 	<script type="text/javascript" src="paper-full.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.js"></script>
 	<link rel="stylesheet" type="text/css" href="circle.css">
+	
 	<script type="text/paperscript" canvas="myCanvas">
 
-	// random point 	
+	var keyData = {
+		a: {
+			color:"purple",
+			sound: new Howl({
+				src: ['sd/bubbles.mp3']
+			})
+		},
+		s: {
+			color:"pink",
+			sound: new Howl({
+				src: ['sd/clay.mp3']
+			})
+		},
+		d: {
+			color:"blue",
+			sound: new Howl({
+				src: ['sd/moon.mp3']
+			})
+		},
+		f: {
+			color:"green",
+			sound: new Howl({
+				src: ['sd/glimmer.mp3']
+			})
+		},
+		g: {
+			color:"red",
+			sound: new Howl({
+				src: ['sd/ufo.mp3']
+			})
+		},
+		g: {
+			color:"rgb(12,0,255)",
+			sound: new Howl({
+				src: ['sd/zig-zag.mp3']
+			})
+		},
+		h: {
+			color:"rgb(120,12,100)",
+			sound: new Howl({
+				src: ['sd/veil.mp3']
+			})
+		},
+		j: {
+			color:"rgb(120,0,54)",
+			sound: new Howl({
+				src: ['sd/wipe.mp3']
+			})
+		},
+		k: {
+			color:"rgb(0,32,0)",
+			sound: new Howl({
+				src: ['sd/strike.mp3']
+			})
+		},
+		l: {
+			color:"rgb(12,0,54)",
+			sound: new Howl({
+				src: ['sd/timer.mp3']
+			})
+		},
+		m: {
+			color:"rgb(12,32,100)",
+			sound: new Howl({
+				src: ['sd/suspension.mp3']
+			})
+		},
+		n: {
+			color:"#989323",
+			sound: new Howl({
+				src: ['sd/flash-1.mp3']
+			})
+		},
+		b: {
+			color:"white",
+			sound: new Howl({
+				src: ['sd/flash-2.mp3']
+			})
+		},
+		v: {
+			color:"#f7f7f7",
+			sound: new Howl({
+				src: ['sd/flash-3.mp3']
+			})
+		},
+		c: {
+			color:"#1213ds",
+			sound: new Howl({
+				src: ['sd/prism-1.mp3']
+			})
+		},
+		x: {
+			color:"grey",
+			sound: new Howl({
+				src: ['sd/splits.mp3']
+			})
+		},
+		z: {
+			color:"yellow",
+			sound: new Howl({
+				src: ['sd/squiggle.mp3']
+			})
+		},
+	}
+
+	var circles = [];
+
 	function onKeyDown(event) {
-		// generate whole screen pixel, fixed number 
-		// return to right bottom corner
-		var maxPoint = new Point(view.size.width, view.size.height);
-		// return 0-1
-		var randomPoint = Point.random();
-		// since randomPoint always different, then point will be random
-		var point = maxPoint*randomPoint;
-		var circle = new Path.Circle(point,10);
-		circle.fillColor = "pink";
+		if (keyData[event.key]){
+			var maxPoint = new Point(view.size.width, view.size.height);
+			var randomPoint = Point.random();
+			var point = maxPoint*randomPoint;
+			var circle = new Path.Circle(point,500);
+			circle.fillColor = keyData[event.key].color;
+			keyData[event.key].sound.play();
+			circles.push(circle);
+		}
+	}
+
+
+	function onFrame(event) {
+		for (var i=0; i<circles.length; i++) {
+			circles[i].fillColor.hue +=1;
+			circles[i].scale(.9);
+		}
 	}
 
 

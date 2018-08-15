@@ -34,3 +34,41 @@ for (var x=0; x<1000; x+=100) {
 			circle.fillColor = "pink";
 		}	
 	}
+
+// add howler
+var sound1 = new Howl({
+	src: ['sd/bubbles.mp3']
+});
+
+var sound2 = new Howl({
+	src: ['sd/clay.mp3']
+});
+
+var circles = [];
+// random point 	
+function onKeyDown(event) {
+	// generate whole screen pixel, fixed number 
+	// return to right bottom corner
+	var maxPoint = new Point(view.size.width, view.size.height);
+	// return 0-1
+	var randomPoint = Point.random();
+	// since randomPoint always different, then point will be random
+	var point = maxPoint*randomPoint;
+	var circle = new Path.Circle(point,500);
+
+
+	if(event.key =="a") {
+		sound1.play();
+		circle.fillColor ="pink";
+	}
+	else if(event.key =="s") {
+		sound2.play();
+		circle.fillColor ="#163289";
+	} else {
+		circle.fillColor ="orange";
+	}
+	
+	circles.push(circle);
+
+
+	}
