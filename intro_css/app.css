@@ -1,0 +1,24 @@
+/*width
+color
+style*/
+h1 {
+	color:purple;
+	/*border-color: purple;
+	border-width: 5px;
+	border-style: solid;*/
+	border: 8px dashed purple;
+	}
+
+	/*select all*/
+li {
+	color:red;
+}
+h4 {
+	background: rgb(10,200,150);
+}
+body {
+	/*background:url(https://www.argospetinsurance.co.uk/assets/uploads/2017/10/pexels-photo-416160-1024x683.jpeg);
+	background-repeat:no-repeat;
+	background-size: cover;*/
+	background:pink;
+}

@@ -1,0 +1,23 @@
+* {
+	border: 1px solid black;
+}
+
+li a {
+	color: blue;
+}
+
+h4+ ul {
+	border: 3px dashed purple;
+}
+
+input[type="submit"] {
+	background: pink;
+}
+
+a[href="http://www.reddit.com"] {
+	background: red;
+}
+
+li:nth-of-type(2) {
+	color: rgb(100,200,255);
+}

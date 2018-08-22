@@ -1,0 +1,15 @@
+p{
+	/*C ontent - width and height */
+	width : 50%;
+	height: 50%;
+	/* border */
+	border: 2px solid blue;
+	/* Padding */
+	padding-left: 10px;
+	/* Margin */
+	/*margin-top: 100px;*/
+	/* top right bottom left*/
+	/*margin: 20px 40px 500px 100px;*/
+
+	margin: 0 auto;
+}
