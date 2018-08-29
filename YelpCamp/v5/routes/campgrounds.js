@@ -17,23 +17,28 @@ router.get("/", function(req,res){
 
 // rest convection 
 // CREATE
-router.post("/", function(req,res){    
+router.post("/", isLoggedIn, function(req,res){    
     // get data from form to add array
     var name = req.body.name;
     var image = req.body.image;
     var descrp = req.body.description;
-    var newCamp = {name: name, image: image, description:descrp};
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    }
+    var newCamp = {name: name, image: image, description: descrp, author: author};
+
     // Create a new campground and save to DB
     Campground.create(newCamp, function(err,newCreate){
         if(err){
             console.log(err);
         } else{
-            res.redirect("/");
+            res.redirect("/campgrounds");
         }
     });
 });
 // NEW
-router.get("/new", function(req,res){
+router.get("/new", isLoggedIn, function(req,res){
     res.render("campground/new");
 });
 
@@ -45,9 +50,17 @@ router.get("/:id", function(req, res){
             console.log(err);
         } else {
             // render show template with campground
-            res.render("/show", { campground: foundCamp});
+            res.render("campground/show", { campground: foundCamp});
         }
     });
 });
+
+// middleware
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 module.exports = router;
