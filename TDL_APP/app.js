@@ -1,5 +1,11 @@
 var express = require("express");
 var app = express();
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = ( new JSDOM('')).window;
+global.document = document;
+var $ = require("jquery")(window);
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+'/public'));

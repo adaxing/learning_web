@@ -1,9 +1,17 @@
 <% include partial/header %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 <div id="container">
     <h1>TO-DO LIST<i class="fas fa-plus"></i></h1>
     <input type="text" placeholder="Add New Notes">
-    <% $("input[type='text']").on(keypress, function(event){ %>
+    <script>
+        <% $("input[type='text']").on(keypress, function(event){ %>
+            <% if (event.which == 13) { %>
+                <% console.log($(this).val())%>
+            <% } %>
+        <% }) %>
+    </script>  
     
     <ul>
         <li><span><i class="far fa-trash-alt"></i></span>1.dfhjsbjhbfsdhjb</li>
