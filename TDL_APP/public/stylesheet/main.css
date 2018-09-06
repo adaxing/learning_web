@@ -16,6 +16,22 @@ h1 {
     font-size: 24px;
 }
 
+button {
+    border: 0;
+    text-transform: uppercase;
+    background: none;
+    font-size: 12px;
+    text-align: center;    
+}
+
+button:focus {
+    outline: none;
+}
+
+#save {
+    display: none;
+}
+
 .fa-plus {
     float: right;
 }
@@ -46,7 +62,7 @@ li {
     line-height: 40px;
 }
 
-li:nth-child(2n) {
+li:nth-child(even) {
     background: #f7f7f7;
 }
 
@@ -67,3 +83,9 @@ li:hover span{
     /* transparency of element: 0, 0-1, 1*/
     opacity:1.0;
 }
+
+.finished {
+    color: gray;
+    text-decoration: line-through;
+}
+

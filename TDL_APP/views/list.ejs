@@ -1,23 +1,40 @@
 <% include partial/header %>
 
 <div id="container">
-    <h1>TO-DO LIST<i class="fas fa-plus"></i></h1>
+    <h1>TO-DO LIST<button id="edit">Edit</button><button id="save">Save</button><i class="fas fa-plus"></i></h1>
     <input type="text" placeholder="Add New Notes">
-    <script>
-        $("input[type='text']").on("keypress", function(event){
-            if (event.which == "13") {
-                var newList = $(this).val();
-                $("ul").append("<li><span><i class='far fa-trash-alt'></i></span>" + newList + "</li>" );
-            }
-        });
-    </script>  
     <ul>
-        <li><span><i class="far fa-trash-alt"></i></span>1.dfhjsbjhbfsdhjb</li>
-        <li><span><i class="far fa-trash-alt"></i></span>2.</li>
-        <li><span><i class="far fa-trash-alt"></i></span>3.</li>
-        <li><span><i class="far fa-trash-alt"></i></span>...</li>
+        <li class="special-li"><span><i class="far fa-trash-alt"></i></span>1.dfhjsbjhbfsdhjb</li>
+        <li class="special-li"><span><i class="far fa-trash-alt"></i></span>2.</li>
+        <li class="special-li"><span><i class="far fa-trash-alt"></i></span>3.</li>
+        <li class="special-li"><span><i class="far fa-trash-alt"></i></span>...</li>
     </ul>
     
 </div>
-
+<script>
+    $("ul").on("click", "li", function(){
+        $(this).toggleClass("finished");
+    });
+    $("ul").on("click", "span", function(){
+        $(this).closest("li").remove();
+    });
+    $("input[type='text']").on("keypress", function(event){
+        if (event.which == "13") {
+            var newList = $(this).val();
+            $(this).val("");
+            $("ul").append("<li><span><i class='far fa-trash-alt'></i></span>" + newList + "</li>" );
+        }
+    });
+    $("#edit").on("click",function(){
+        $("#edit").hide();
+        $(".special-li").each(function(){
+            var content = $(this).text();
+            $(this).html("<li><span><i class='far fa-trash-alt'></i></span><input value= '"+ content + "'></li>");
+        });
+        $("#save").show();
+    });
+    $(".fa-plus").on("click", function(){
+        $("input[type='text']").fadeToggle();
+    });
+</script>
 <% include partial/footer %>
