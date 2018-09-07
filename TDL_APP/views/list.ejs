@@ -1,9 +1,9 @@
 <% include partial/header %>
 
 <div id="container">
-    <h1>TO-DO LIST<button id="edit">Edit</button><button id="save">Save</button><i class="fas fa-plus"></i></h1>
+    <h1 id="title">TO-DO LIST<button class="special-button" id="edit">Edit</button><button class="special-button" id="save">Save</button><i class="fas fa-plus"></i></h1>
     <input type="text" placeholder="Add New Notes">
-    <ul>
+    <ul id="special-ul">
         <li class="special-li"><span><i class="far fa-trash-alt"></i></span>1.dfhjsbjhbfsdhjb</li>
         <li class="special-li"><span><i class="far fa-trash-alt"></i></span>2.</li>
         <li class="special-li"><span><i class="far fa-trash-alt"></i></span>3.</li>
@@ -22,17 +22,27 @@
         if (event.which == "13") {
             var newList = $(this).val();
             $(this).val("");
-            $("ul").append("<li><span><i class='far fa-trash-alt'></i></span>" + newList + "</li>" );
+            $("ul").append("<li class='special-li'><span><i class='far fa-trash-alt'></i></span>" + newList + "</li>" );
         }
     });
     $("#edit").on("click",function(){
         $("#edit").hide();
         $(".special-li").each(function(){
             var content = $(this).text();
-            $(this).html("<li><span><i class='far fa-trash-alt'></i></span><input value= '"+ content + "'></li>");
+            $(this).html("<span><i class='far fa-trash-alt'></i></span><input type='text' value='"+content +"'>");
         });
         $("#save").show();
     });
+    $("#save").on("click", function(){
+        $("#save").hide();
+        $('input').each(function(){
+            var content = $(this).val();
+            $(this).html(content);
+            console.log($(this).contents());
+            $(this).contents().unwrap();
+        });
+        $("#edit").show();
+    })
     $(".fa-plus").on("click", function(){
         $("input[type='text']").fadeToggle();
     });
