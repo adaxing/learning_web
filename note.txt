@@ -1,0 +1,45 @@
+jQuery
+	- one of the many libraries for JavaScript
+	- design to simplify scripting done on the client side
+		easily manipulate elements, create animations and handle input events
+	- dollar sign syntax ($)
+	- often selects an HTML element with a selector($), then do something to that element
+	- script in the beginning
+		<script>
+			$(document).ready(function(){
+
+			}) // important!!, because without it, when it run before html rendered, it will get in bug
+		</script>
+
+	- when selecting three ways
+		class -> $(".class").function
+		id -> $("#id").function
+		element -> $("element").function
+	- jquery function
+		.addClass() = add new classes // can add multiple classes in a single call
+		.removeClass() = remove classes
+		.css("","") =  change CSS of element
+		.prop() = allow to adjust properties of elements 						ex:.prop('disabled',true)
+		.html() = allow to add HTML tags and text within an element, any 		content within element will be completely replaced
+		.text() = only change text within an element, without adding tags
+		.remove() = remove an HTML element entirely
+		.appendTo() = select HTML elements and append to another element
+		.clone() = make a copy of element
+			.clone().appendTo("") -> select element and make a copy and append to another place, without remove element from original place
+		.parent() = allow to access the parent of whichever selected element 
+		.children() = allow to access children of whichever selected children
+		:nth-child(n) = allow to select all the nth elements with the target 	class or element type 
+		:odd/even = select even/odd elements, selection starts from 0
+
+HTML
+	<em>vs.<i>
+	both italicize text
+	- visual result is same
+	- but! <em> works on stress emphasis
+			<i> works on refer to something
+
+
+Sass(Synatactically Awesome StyleSheet)
+	- extension of CSS, since it is preprocessor -> takes code
+	
+

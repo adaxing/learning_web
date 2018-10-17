@@ -24,9 +24,7 @@ b. why do we use jquery over js?
   - It also simplify complicated things from js, like ajax calls and dom manipulation
   - jquery library contains: HTML/DOM manipulation; css manipulation; html event methods; effects and animation; ajax; utilities
   
-  what is manipulation and utilities? 
-  what/why is dom?
-  
+  - manipulation of the dom(document object model) and is mechanism for representing and interacting with HTML,XHTML or XML documents.
    
   
   
