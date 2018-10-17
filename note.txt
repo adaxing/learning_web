@@ -40,6 +40,121 @@ HTML
 
 
 Sass(Synatactically Awesome StyleSheet)
-	- extension of CSS, since it is preprocessor -> takes code
-	
+	- type ='text/sass'
+	- language extension/preprocessor of CSS,add features that CSS does not have
+	- two syntaxes for Sass
+		1. SCSS(Sassy CSS) is extension of syntax of CSS-> every valid CSS stylesheet is a valid SCSS file with same meaning = file.scss extension
+		2. indented syntax(Sass) uses indentation rather than brackets to indicate selectors; newlines rather than semicolons to separate properties = file.sass
+	- different from CSS
+		- use variables, declared and set to store data, similar to JS
+			-> $variable-name:value;
+				h1 { 
+					color: $variable-name;
+				}
+		- allow nesting of CSS rules, organize by placing child style rules within the respective parent elements
+			<style type='text/sass'>
+			  .blog-post {
+			    h1 {
+			      text-align: center;
+			      color: blue;
+			    }
+			    p {
+			      font-size: 20px;
+			     }  
+			  }  
+			</style>
+			<div class="blog-post">
+			  <h1>Blog Title</h1>
+			  <p>This is a paragraph</p>
+			</div>
+		- create reusable CSS with Mixins, mixin is a group of CSS declarations
+			when use mixin, @include mixin
+			<style type='text/sass'>
+			  @mixin border-radius($radius){
+			    -webkit-border-radius: $radius;
+			    -moz-border-radius: $radius;
+			    -ms-border-radius: $radius;
+			    border-radius: $radius;
+			  }
+			  #awesome {
+			    background-color: green;
+			    @include border-radius(15px);
+			  }
+			</style>
+
+		- partials in Sass are separate files, holding segments of CSS
+			are imported and used in other Sass files 
+			- written as '_mixins.scss' 
+			- when use in another Sass file -> @import 'mixins' 
+		- extend one set of CSS styles to another element
+			- can copy style from one class to another by @extend name;
+				.info{
+				    width: 200px;
+				    border: 1px solid black;
+				    margin: 0 auto;
+				}
+			  .info-important{
+			    @extend .info;
+			    background-color: magenta;
+			  }
+
+
+		- add logic 
+			1. @if @else if @else
+				<style type='text/sass'>
+				  @mixin border-stroke($val){
+				    @if $val == light {
+				      border: 1px solid black;
+				    }
+				    @else if $val == medium {
+				      border: 3px solid black;
+				    }
+				    @else if $val == heavy {
+				      border: 6px solid black;
+				    }
+				    @else {
+				      border: none;
+				    }
+				  }
+				  #box {
+				    width: 150px;
+				    height: 150px;
+				    background-color: red;
+				    @include border-stroke(light);
+				  }  
+				</style>
+				<div id="box"></div>
+			2. @for  -- for creating a simple grid system
+				a. start through end(include end)
+				b. start to end(exclude end)
+				- #{$i} -> to make a string
+					<style type='text/sass'>
+					  @for $j from 1 to 6 {
+					    .text-#{$j} {font-size: $j * 10px;}
+					  } 
+					</style>
+					<p class="text-1">Hello</p>
+					<p class="text-2">Hello</p>
+					<p class="text-3">Hello</p>
+					<p class="text-4">Hello</p>
+					<p class="text-5">Hello</p>
+			3. @each -- map over items in a list or map
+				list 
+					@each $color in blue, black, red {
+  						.#{$color}-bg {background-color: $color;}
+					}
+				map
+					$colors: (c1:blue, c2:black, c3:red);
+					@each $key,$color in $colors {
+						.#{$color}-bg {background-color: $color;}
+					}
+					// $key variable references the keys in the map
+			4. @while -- can also create a simple grid system
+				$x: 1;
+				@while $x < 13 {
+					.col-#{$x} { width: 10px * $x; }
+					$x: $x+1;
+				}
+
+
 
