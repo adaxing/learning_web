@@ -18,13 +18,23 @@ a. Why do we use bootstrap?
   - Also, it is easily to edit when you need to add more or change functionality.
   - ...
 
-b. why do we use jquery over js?
+b. why do we use jquery?
+  > Fixs 'broken' DOM API  <- DOM API( methods docomument.querySelector get element by id, etc) considered broken,jquery makes easy and quicker
+  > Clarity and shorter
+  > Easy to use 
+  > Cross-Browser Support  <- takes care Explorer9,8
+  > Ajax
+
   - It is to easily use JS on the website. Since to achieves some common tasks, that requires many lines of js, while jquery 
     do it in a single line
   - It also simplify complicated things from js, like ajax calls and dom manipulation
-  - jquery library contains: HTML/DOM manipulation; css manipulation; html event methods; effects and animation; ajax; utilities
-  
+  - jquery library contains: HTML/DOM manipulation; css manipulation; html event methods; effects and animation; ajax; utilities 
   - manipulation of the dom(document object model) and is mechanism for representing and interacting with HTML,XHTML or XML documents.
+
+c. why not use jquery?
+  > if only use few methods, can do by self, unnessary to use jquery as it have hundreds methods, so it's too heavy tool
+  > unnecessary dependency
+  > performance
    
   
   

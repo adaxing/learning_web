@@ -38,6 +38,11 @@ HTML
 	- but! <em> works on stress emphasis
 			<i> works on refer to something
 
+	- almost all tags needs both opening and closing tags
+		- there some self-closing tags
+			<br />or <br> //add line-break
+			<hr/> //add line
+
 
 Sass(Synatactically Awesome StyleSheet)
 	- type ='text/sass'
